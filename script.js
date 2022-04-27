@@ -1,6 +1,6 @@
 //Solution for Assessment: Part Two, Question B
 
-//TO USE: type 'node script.js' followed by a space and one of the Nobel Prize categories to access the winner of that category and their motivation for the award from a randomly selected year between last year and 1901.
+//TO USE: type 'node script.js' in the command line followed by a space and one of the Nobel Prize categories to access the winner of that category and their motivation for the award from a randomly selected year between last year and 1901. For example: node script.js Chemistry
 //The acceptable categories are: Literature, Physics, Chemistry, Medicine, Peace, and Econmics
 
 const https = require('https')
