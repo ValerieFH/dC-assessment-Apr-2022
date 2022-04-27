@@ -1,0 +1,25 @@
+<!-- Base HTML code to convert -->
+<div>
+    <div id="homeParagraph">
+        <div id="txtParagraph">
+            <img src="/galleries/img-1.v/full.jpg"></img>
+            <p>This is a paragraph. This is a <a href="/link" class="homeLink">link.</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Mock dcCMS version -->
+
+<!-- Step 1 -->
+<dc.Band Pad="Small" Width="Wide">
+    <dc.FullLayout Pad="Small" id="homeParagraph">
+        <dcm.ImageWidget Path="/img-1"/>
+        <dc.TextWidget>
+            <Tr Locale="eng"><![CDATA[
+            This is a paragraph. This is a [link](/link "homeLink")
+            ]]></Tr>
+        </dc.TextWidget>
+        <dc.Button Label="Home" Page="https://designcraftadvertising.com/" /> <!-- Step 2 -->
+        <dcm.SocialMediaWidget For="Instagram,Twitter" IconTypeName="square" /> <!-- Step 3-->
+    </dc.FullLayout>
+</dc.Band>
