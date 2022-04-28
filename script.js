@@ -1,7 +1,8 @@
 //Solution for Assessment: Part Two, Question B
 
 //TO USE: type 'node script.js' in the command line followed by a space and one of the Nobel Prize categories to access the winner of that category and their motivation for the award from a randomly selected year between last year and 1901. For example: node script.js Chemistry
-//The acceptable categories are: Literature, Physics, Chemistry, Medicine, Peace, and Econmics
+//The acceptable categories are: Literature, Physics, Chemistry, Medicine, Peace, and Economics
+//if no winner was awarded in the selected category, the output will state as such and the command could be run again
 
 const https = require('https')
 
@@ -21,15 +22,22 @@ function getQuote() {
     const req = https.request(options, res => {
         let body = ""
 
+        //console.log("STATUS", res.statusCode)
+
         res.on('data', chunk => {
             body += chunk
         })
 
         res.on('end', _ => {
             let data = JSON.parse(body)
-            console.log(`The ${randomYear} Nobel Prize winner for ${category}:`)
-            console.log('Name: ' + data[0].laureates[0].fullName.en)
-            console.log('Motivation for award: ' + data[0].laureates[0].motivation.en)
+            // console.log(data)
+            if(data[0].laureates){
+                console.log(`The ${randomYear} Nobel Prize winner for ${category}:`)
+                console.log('Name: ' + data[0].laureates[0].fullName.en)
+                console.log('Motivation for award: ' + data[0].laureates[0].motivation.en)
+            } else {
+                console.log(`No prize awarded for ${category} in ${randomYear}`)
+            }
         })
     })
 
